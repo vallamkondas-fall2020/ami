@@ -21,13 +21,6 @@ jobs:
         run: sudo unzip packer_1.6.4_linux_amd64.zip
       - name: change the directory
         run: cd ../../
-      - name: environment varibles
-        uses: riznob/packer-build-action@v1.1
-        with:
-          templateFile: 'ami.json'
-        env:
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
       - name: Validate Packer Template
         run: ./packer validate ami.json
       - name: Build AMI
