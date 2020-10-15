@@ -5,31 +5,19 @@ on:
       - main
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
-      - checkout
-      - run:
-          name: Update apt-get
-          command: sudo apt-get update
-      - run:
-          name: install wget
-          command: sudo apt-get install wget zip unzip
-      - run:
-          name: aws cli
-          command: sudo pip install awscli
-      - run:
-          name: Download packer
-          command: wget -q https://releases.hashicorp.com/packer/1.6.4/packer_1.6.4_linux_amd64.zip
-      - run:
-          name: Unzip packer
-          command: unzip packer_1.5.4_linux_amd64.zip
-      - run:
-          name: Validate Packer Template
-          command: ./packer validate ami.json
-      - run:
-          name: Build AMI
-          command: ./packer build ubuntu-ami.json
-workflows:
-  version: 2
-  build-ami:
-    jobs:
-      - build
+      - name: Update apt-get
+        run: sudo apt-get update
+      - name: install wget
+        run: sudo apt-get install wget zip unzip
+      - name: aws cli
+        run: sudo pip install awscli
+      - name: Download packer
+        run: wget -q https://releases.hashicorp.com/packer/1.6.4/packer_1.6.4_linux_amd64.zip
+      - name: Unzip packer
+        run: unzip packer_1.5.4_linux_amd64.zip
+      - name: Validate Packer Template
+        run: ./packer validate ami.json
+      - name: Build AMI
+        run: ./packer build ubuntu-ami.json
