@@ -1,7 +1,7 @@
 {
   "variables": {
-    "aws_access_key": "$env:ACCESS_KEY",
-    "aws_secret_key": "$env:SECRET_KEY",
+    "aws_access_key": "AKIAR373I6KXHDNRRXHW",
+    "aws_secret_key": "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",
     "aws_region": "us-east-1",
     "subnet_id": "",
     "ami_users": "597569852494",
