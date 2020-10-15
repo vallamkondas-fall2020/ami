@@ -16,7 +16,11 @@ jobs:
       - name: Download packer
         run: sudo wget -q https://releases.hashicorp.com/packer/1.6.4/packer_1.6.4_linux_amd64.zip
       - name: Unzip packer
-        run: sudo unzip packer_1.5.4_linux_amd64.zip
+        run: sudo unzip packer_1.6.4_linux_amd64.zip
+      - name: directory
+        run: pwd
+      -name: ami directory
+        run: ls -lrt */*.*|grep ami
       - name: Validate Packer Template
         run: ./packer validate ami.json
       - name: Build AMI
