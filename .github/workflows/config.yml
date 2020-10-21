@@ -1,0 +1,27 @@
+name: pull request check
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+      - name: Update apt-get
+        run: sudo apt-get update
+      - name: install wget
+        run: sudo apt-get install wget zip unzip
+      - name: aws cli
+        run: sudo pip install awscli
+      - name: Download packer
+        run: sudo wget -q https://releases.hashicorp.com/packer/1.6.4/packer_1.6.4_linux_amd64.zip
+      - name: Unzip packer
+        run: sudo unzip packer_1.6.4_linux_amd64.zip
+      - name: change the directory
+        run: cd ../../
+      - name: Validate Packer Template
+        run: ./packer validate ami.json
+      - name: Build AMI
+        run: ./packer build ami.json
