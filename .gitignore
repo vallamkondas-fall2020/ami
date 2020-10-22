@@ -7,5 +7,4 @@ crash.log
 # For built boxes
 *.box
 credentials.json
-*.sh
 .idea/
