@@ -24,4 +24,4 @@ jobs:
       - name: Validate Packer Template
         run: ./packer validate ami.json
       - name: Build AMI
-        run: ./packer build ami.json
+        run: ./baseInit.sh
