@@ -11,5 +11,5 @@ To build run the baseInit script
 Launch the AMI image using the under EC2 in the AWS
 
 Launch the AMI image using the under 
-
+Launch the AMI image using the under EC2 in the AWS
 Launch the AMI image using the under EC2 in the AWS Consol
